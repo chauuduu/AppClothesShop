@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "MIjuQJgFp2Iojv6QSWvBEKTtRubBn8goq8jHqO01nP8=",
+  "Source": "ClothesRentalShop",
+  "BasePath": "_content/ClothesRentalShop",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClothesRentalShop\\wwwroot",
+      "Source": "ClothesRentalShop",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\ClothesRentalShop\\wwwroot\\",
+      "BasePath": "_content/ClothesRentalShop",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

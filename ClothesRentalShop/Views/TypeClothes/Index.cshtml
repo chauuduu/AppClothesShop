@@ -1,0 +1,216 @@
+﻿@{
+	ViewData["Title"] = "TypeClothes Page";
+}
+
+<div class="latest-data block-container mb-5" id="ImportDataPage">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="breadcrumb">
+					<a class="breadcrumb-item" href="~/"><i class="fa fa-home">ClothesShop</i></a>
+					<a class="breadcrumb-item active">TypeClothes</a>
+				</div>
+			</div>
+		</div>
+		@*<div class="long-title"><h3>Upload Dữ Liệu</h3></div>*@
+		<div class="demo-container">
+			<div id="data-grid-demo">
+				<div id="gridContainer"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
+		var url = window.location.href;
+		var status = getParameterByName('status', url);
+		window.history.pushState(null, null, "TypeClothes");
+
+		if (status == 1)
+			DevExpress.ui.notify('Thêm TypeClothes thành công', 'success', 2000);
+
+		jQuery.fn.load = function (callback) {
+			var el = $(this);
+			el.on('load', callback);
+			return el;
+		};
+
+		let getAllTypeClothes;
+		$.ajax({
+			type: 'get',
+			async: false,
+			url: '/api/TypeClothes',
+			success: function (data) {
+				getAllTypeClothes = data;
+			},
+			error: function (err) {
+				alert('Load dữ liệu TypeClothes lỗi.');
+			}
+		});
+		const itemsShow = [
+			{
+				caption: "STT",
+				width: 40,
+				cellTemplate: function (cellElement, cellInfo) {
+					var index = dataGrid.pageIndex() * dataGrid.pageSize() + cellInfo.rowIndex + 1;
+					cellElement.text(index);
+				},
+				formItem: {
+					visible: false
+				}
+			},
+			{
+				dataField: "id",
+				visible: false
+			},
+			{
+				dataField: "name",
+				caption: "Name",
+				validationRules: [
+					{
+						type: "required",
+						message: "Name is required"
+					}
+				]
+			},
+			{
+				dataField: "limit",
+				caption: "Limit",
+				validationRules: [
+					{
+						type: "required",
+						message: "Limit is required"
+					}
+				]
+			},
+			{
+				type: "buttons",
+				width: 110,
+				buttons: ["edit", "delete"]
+			},
+		]
+		var dataGrid = $("#gridContainer").dxDataGrid({
+			dataSource: getAllTypeClothes,
+			keyExpr: "",
+			showBorders: true,
+			paging: {
+				pageSize: 10
+			},
+			searchPanel: {
+				visible: true
+			},
+			pager: {
+				showPageSizeSelector: true,
+				allowedPageSizes: [10, 20],
+				showInfo: true
+			},  //Tạo phân trang
+			editing: {
+				allowDeleting: true,  //Hiển thị nút xóa
+				allowAdding: true,   // Hiển thị nút thêm
+				mode: "popup",
+				allowUpdating: true,
+				useIcons: true,
+				popup: {
+					title: "Quản lý TypeClothes ",
+					showTitle: true,
+					width: 700,
+					height: 500,
+					position: {
+						my: "top",
+						at: "top",
+						of: window
+					}
+				},
+				form: {
+					items: [{
+						itemType: "group",
+						colCount: 2,
+						colSpan: 2,
+						items: [
+							{
+								dataField: "id",
+								colSpan: 2,
+								visible: false,
+							},
+							{
+								dataField: "name",
+								colSpan: 2,
+							},
+							{
+								dataField: "limit",
+								colSpan: 2,
+							},
+
+						]
+					}]
+				}
+			},
+			columns: itemsShow,
+			onRowRemoving: function (e) {
+				$.ajax({
+					type: 'DELETE',
+					async: false,
+					url: '/api/typeclothes/' + e.data.id,
+					success: function (dulieu) {
+						DevExpress.ui.notify('Xóa TypeClothes thành công', 'success', 2000);
+					},
+					error: function (err) {
+						e.cancel = true;
+						DevExpress.ui.notify('Xóa lỗi! Vui lòng nhấn F5 và tiến hành Xóa lại.', 'error', 2000);
+					}
+				});
+			},
+			onRowInserting: function (e) {
+				let formData = {
+					name: e.data.name,
+					limit: e.data.limit
+				};
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(formData),
+					contentType: 'application/json',
+					async: false,
+					url: '/api/typeclothes',
+					success: function (dulieu) {
+						window.location = "TypeClothes?status=1";
+					},
+					error: function (err) {
+						e.cancel = true;
+						DevExpress.ui.notify('Thêm TypeClothes không thành công', 'error', 2000);
+					}
+				});
+			},
+			onRowUpdating: function (e) {
+				const form = { ...e.oldData, ...e.newData }
+				let formData = {
+					name: form.name,
+					limit: form.limit
+				};
+				$.ajax({
+					type: 'put',
+					async: false,
+					url: '/api/typeclothes/' + form.id,
+					//dataType: 'json',
+					data: JSON.stringify(formData),
+					contentType: 'application/json',
+					success: function (dulieu) {
+						DevExpress.ui.notify('Update TypeClothes thành công', 'success', 2000);
+					},
+					error: function (err) {
+						e.cancel = true;
+						DevExpress.ui.notify('Lỗi. vui lòng thử lại', 'error', 2000);
+					}
+				});
+			}
+		}).dxDataGrid("instance");
+	});
+</script>
