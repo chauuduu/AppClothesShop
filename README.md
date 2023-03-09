@@ -1,9 +1,10 @@
 # Project Clothes Shop
 - DDD(Domain Driven Design) : v
-- Onion Architecture (4 layers) :Domain; Infrastructure (interact with database : IRepository, Repository) ; Application (handle business logic : IService, Service); UI (api swagger)
+- Onion Architecture (4 layers) :Domain; Infrastructure (interact with database : IRepository, Repository) ; Application (handle business logic : IService, Service); UI (api swagger, controller with view razor page)
 - Entity Framework Core 
 - Fluent Api, Automapper, Pagination, JWT
 - Generic class : automapper ; Linq
+- Controller with view razor page (CRUD + F)
 
 ![a1](https://user-images.githubusercontent.com/81465934/223073996-837c6790-b6f9-472a-8f46-9fcc02a7a5d2.JPG)
 ![a2](https://user-images.githubusercontent.com/81465934/223074015-6180ae37-22ae-4325-b326-3fef1111bda2.JPG)
@@ -15,3 +16,5 @@ Role != Admin
 ![a5](https://user-images.githubusercontent.com/81465934/223308180-22b0475f-7f9f-4fa9-a839-05e3d0c47590.JPG)
 Not use Token
 ![a6](https://user-images.githubusercontent.com/81465934/223308201-fb3f88d7-4477-4dc6-b1c3-8bc70c468cde.JPG)
+CRUD PAGE
+![ec](https://user-images.githubusercontent.com/81465934/223967421-ed1997f5-f87c-47f3-9914-05b39dffa6b2.JPG)
