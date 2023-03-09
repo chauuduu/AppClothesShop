@@ -33,7 +33,50 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-            modelBuilder.Entity("Domain.Cloth.Clothes", b =>
+			modelBuilder.Entity("Domain.Cloth.Origin", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
+
+				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+				b.Property<string>("Address")
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnType("nvarchar(50)");
+
+				b.Property<string>("Name")
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnType("nvarchar(50)");
+
+				b.HasKey("Id");
+
+				b.ToTable("Origin");
+			});
+
+			modelBuilder.Entity("Domain.Cloth.TypeClothes", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
+
+				SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+				b.Property<int>("Limit")
+					.HasColumnType("int");
+
+				b.Property<string>("Name")
+					.IsRequired()
+					.HasMaxLength(50)
+					.HasColumnType("nvarchar(50)");
+
+				b.HasKey("Id");
+
+				b.ToTable("TypeClothes");
+			});
+			modelBuilder.Entity("Domain.Cloth.Clothes", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -81,49 +124,7 @@ namespace Infrastructure
                 b.ToTable("Clothes");
             });
 
-            modelBuilder.Entity("Domain.Cloth.Origin", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                b.Property<string>("Address")
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnType("nvarchar(50)");
-
-                b.Property<string>("Name")
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnType("nvarchar(50)");
-
-                b.HasKey("Id");
-
-                b.ToTable("Origin");
-            });
-
-            modelBuilder.Entity("Domain.Cloth.TypeClothes", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                b.Property<int>("Limit")
-                    .HasColumnType("int");
-
-                b.Property<string>("Name")
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnType("nvarchar(50)");
-
-                b.HasKey("Id");
-
-                b.ToTable("TypeClothes");
-            });
+           
 
             modelBuilder.Entity("Domain.Customers.Customer", b =>
             {
@@ -154,23 +155,6 @@ namespace Infrastructure
 
             });
 
-            modelBuilder.Entity("Domain.Invoices.DetailInvoice", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                b.Property<int>("ClothesId")
-                    .HasColumnType("int");
-
-                b.Property<int>("InvoiceId")
-                    .HasColumnType("int");
-
-                b.HasKey("Id");
-
-                b.ToTable("DetailInvoice");
-
-            });
 
             modelBuilder.Entity("Domain.Invoices.Invoice", b =>
             {
@@ -196,7 +180,25 @@ namespace Infrastructure
 
             });
 
-            modelBuilder.Entity("Domain.Laundries.Laundry", b =>
+			modelBuilder.Entity("Domain.Invoices.DetailInvoice", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
+
+				b.Property<int>("ClothesId")
+					.HasColumnType("int");
+
+				b.Property<int>("InvoiceId")
+					.HasColumnType("int");
+
+				b.HasKey("Id");
+
+				b.ToTable("DetailInvoice");
+
+			});
+
+			modelBuilder.Entity("Domain.Laundries.Laundry", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -228,7 +230,27 @@ namespace Infrastructure
 
             });
 
-            modelBuilder.Entity("Domain.LaundryInvoices.DetailInvoiceLaundry", b =>
+			modelBuilder.Entity("Domain.LaundryInvoices.LaundryInvoice", b =>
+			{
+				b.Property<int>("Id")
+					.ValueGeneratedOnAdd()
+					.HasColumnType("int");
+
+				b.Property<DateTime>("Date")
+					.HasColumnType("datetime2");
+
+				b.Property<int>("LaundryId")
+					.HasColumnType("int");
+
+				b.Property<int>("StaffId")
+					.HasColumnType("int");
+
+				b.HasKey("Id");
+
+				b.ToTable("LaundryInvoice");
+
+			});
+			modelBuilder.Entity("Domain.LaundryInvoices.DetailInvoiceLaundry", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -249,26 +271,6 @@ namespace Infrastructure
 
             });
 
-            modelBuilder.Entity("Domain.LaundryInvoices.LaundryInvoice", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                b.Property<DateTime>("Date")
-                    .HasColumnType("datetime2");
-
-                b.Property<int>("LaundryId")
-                    .HasColumnType("int");
-
-                b.Property<int>("StaffId")
-                    .HasColumnType("int");
-
-                b.HasKey("Id");
-
-                b.ToTable("LaundryInvoice");
-
-            });
 
             modelBuilder.Entity("Domain.Staffs.RoleStaff", b =>
             {
@@ -494,43 +496,43 @@ namespace Infrastructure
 
                 b.Navigation("LaundryInvoices");
             });
-            
-            //data seeding
-            modelBuilder.Entity<Clothes>().HasData(
-                new { Id =1, Name = "Váy công sở Zara", Description = "Màu trắng", Size = Size.Large, Price = 89.99m, RentalTime = 0, RentalPrice = 200000, TypeClothesId = 1, OriginId = 1, Status = Status.Available },
-                new { Id=2, Name = "Áo công sở Uniqlo", Description = "Màu đen", Size = Size.Medium, Price = 58.99m, RentalTime = 0, RentalPrice = 100000, TypeClothesId = 2, OriginId = 2, Status = Status.Available }
-                );
-            modelBuilder.Entity<TypeClothes>().HasData(
-                new { Id=1, Name = "Váy", Limit = 15 },
-                new { Id=2, Name = "Áo", Limit = 20 }
-                );
+
+			//data seeding
+			modelBuilder.Entity<TypeClothes>().HasData(
+			   new { Id = 1, Name = "Váy", Limit = 15 },
+			   new { Id = 2, Name = "Áo", Limit = 20 }
+			   );
             modelBuilder.Entity<Origin>().HasData(
                 new { Id = 1, Name = "Zara", Address = "Korea" },
                 new { Id = 2, Name = "Uniqlo", Address = "Japan" }
                 );
+
+			modelBuilder.Entity<Clothes>().HasData(
+                new { Id =1, Name = "Váy công sở Zara", Description = "Màu trắng", Size = Size.Large, Price = 89.99m, RentalTime = 0, RentalPrice = 200000, TypeClothesId = 1, OriginId = 1, Status = Status.Available },
+                new { Id=2, Name = "Áo công sở Uniqlo", Description = "Màu đen", Size = Size.Medium, Price = 58.99m, RentalTime = 0, RentalPrice = 100000, TypeClothesId = 2, OriginId = 2, Status = Status.Available }
+                );
+           
             modelBuilder.Entity<Customer>().HasData(
                 new { Id = 1, FullName = "Chau Hoang Bich Du", Phone="0943357474", Address="32 Nguyen Hue Str, Hue" },
                 new { Id = 2, FullName = "Chau Chi Khanh", Phone = "0935727272", Address = "42 Nguyen Hue Str, Ha Noi" }
                 );
-            modelBuilder.Entity<DetailInvoice>().HasData(
-                new { Id = 1, InvoiceId=1, ClothesId=1,Quantity=1},
-                new { Id = 2, InvoiceId = 1, ClothesId = 2, Quantity = 1 }
-                );
             modelBuilder.Entity<Invoice>().HasData(
-               new { Id = 1, Date = new DateTime(2023, 2, 1),CustomerId=1,StaffId=1,Discount=0}
-               );
-            modelBuilder.Entity<Laundry>().HasData(
+               new { Id = 1, Date = new DateTime(2023, 2, 1),CustomerId=1,StaffId=1,Discount=0},
+			   new { Id = 2, Date = new DateTime(2023, 2, 2), CustomerId = 2, StaffId = 2, Discount = 0 }
+			   );
+
+			
+			modelBuilder.Entity<Laundry>().HasData(
                 new { Id = 1, Name = "O Ti", Phone = "0943357373", Address = "56 Nguyen Hue Str, Hue",Rate=3 },
                 new { Id = 2, Name = "O Mi", Phone = "0935727276", Address = "42 Hai Ba Trung Str, Hue",Rate=4 }
                 );
-            modelBuilder.Entity<DetailInvoiceLaundry>().HasData(
-                new { Id = 1, LaundryInvoiceId = 1, ClothesId = 1, Quantity = 1, Price = 1.00m },
-                new { Id = 2, LaundryInvoiceId = 1, ClothesId = 2, Quantity = 1, Price = 0.99m }
-                );
-            modelBuilder.Entity<LaundryInvoice>().HasData(
-               new { Id = 1, Date = new DateTime(2023, 2, 3), LaundryId = 2, StaffId = 1 }
-               );
-            modelBuilder.Entity<RoleStaff>().HasData(
+			modelBuilder.Entity<LaundryInvoice>().HasData(
+			  new { Id = 1, Date = new DateTime(2023, 2, 3), LaundryId = 2, StaffId = 1 },
+			  new { Id = 2, Date = new DateTime(2023, 2, 3), LaundryId = 1, StaffId = 2 }
+			  );
+			
+
+			modelBuilder.Entity<RoleStaff>().HasData(
                new { Id = 1, Name="Admin" },
                new { Id = 2, Name = "Accountant" }
                );
@@ -538,8 +540,16 @@ namespace Infrastructure
                new { Id = 1, CitizenCode="04321842241", FullName = "Nguyen Thi Kim Tuyen",Birthday= new DateTime(2001, 2, 1), Phone = "0943357323", Address = "5/6 Nguyen Cong Tru Str, Hue", RoleId = 1, Email = "admin@abc.com", Password = "SS1JiBmooIzUmIjlbQEUet0eMI/KvUUX5j9E/Qk/Bf8=", CreatedDate = new DateTime(2022, 1, 17) },
                new { Id = 2, CitizenCode = "04242144124", FullName = "Nguyen Van Tai", Birthday = new DateTime(1989, 2, 1), Phone = "0943357329", Address = "5/10 Nguyen Hue Str, Hue", RoleId = 2, Email = "tai@gmail.com", Password = "SS1JiBmooIzUmIjlbQEUet0eMI/KvUUX5j9E/Qk/Bf8=", CreatedDate = new DateTime(2023, 1, 1) }
                );
-            //pass="admin@2022"
-        }
+			modelBuilder.Entity<DetailInvoiceLaundry>().HasData(
+				new { Id = 1, LaundryInvoiceId = 1, ClothesId = 1, Price = 1.00m },
+				new { Id = 2, LaundryInvoiceId = 2, ClothesId = 2, Price = 0.99m }
+				);
+			modelBuilder.Entity<DetailInvoice>().HasData(
+				new { Id = 1, InvoiceId = 1, ClothesId = 1 },
+				new { Id = 2, InvoiceId = 2, ClothesId = 2 }
+				);
+			//pass="admin@2022"
+		}
 
         private const string connectionString = @"Server=DESKTOP-FF1278R;Database=ClothesShop;Trusted_Connection=True;MultipleActiveResultSets=true;Encrypt=False";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

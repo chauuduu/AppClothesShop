@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230309023215_Migration_init")]
-    partial class Migration_init
+    [Migration("20230309101503_db_clothes_v1.8")]
+    partial class db_clothes_v18
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -244,7 +244,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = 2,
                             ClothesId = 2,
-                            InvoiceId = 1
+                            InvoiceId = 2
                         });
                 });
 
@@ -278,6 +278,14 @@ namespace Infrastructure.Migrations
                             Date = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Discount = 0,
                             StaffId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CustomerId = 2,
+                            Date = new DateTime(2023, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Discount = 0,
+                            StaffId = 2
                         });
                 });
 
@@ -361,7 +369,7 @@ namespace Infrastructure.Migrations
                         {
                             Id = 2,
                             ClothesId = 2,
-                            LaundryInvoiceId = 1,
+                            LaundryInvoiceId = 2,
                             Price = 0.99m
                         });
                 });
@@ -392,6 +400,13 @@ namespace Infrastructure.Migrations
                             Date = new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LaundryId = 2,
                             StaffId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LaundryId = 1,
+                            StaffId = 2
                         });
                 });
 

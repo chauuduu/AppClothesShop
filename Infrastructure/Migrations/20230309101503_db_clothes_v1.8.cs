@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class db_clothesshop_v14 : Migration
+    public partial class db_clothes_v18 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -312,34 +312,40 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "DetailInvoice",
-                columns: new[] { "Id", "ClothesId", "InvoiceId" },
-                values: new object[] { 2, 2, 1 });
-
-            migrationBuilder.InsertData(
-                table: "DetailInvoiceLaundry",
-                columns: new[] { "Id", "ClothesId", "LaundryInvoiceId", "Price" },
-                values: new object[] { 2, 2, 1, 0.99m });
-
-            migrationBuilder.InsertData(
                 table: "Invoice",
                 columns: new[] { "Id", "CustomerId", "Date", "Discount", "StaffId" },
-                values: new object[] { 1, 1, new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 1 },
+                    { 2, 2, new DateTime(2023, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, 2 }
+                });
 
             migrationBuilder.InsertData(
                 table: "LaundryInvoice",
                 columns: new[] { "Id", "Date", "LaundryId", "StaffId" },
-                values: new object[] { 1, new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1 });
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 1 },
+                    { 2, new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2 }
+                });
 
             migrationBuilder.InsertData(
                 table: "DetailInvoice",
                 columns: new[] { "Id", "ClothesId", "InvoiceId" },
-                values: new object[] { 1, 1, 1 });
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 2 }
+                });
 
             migrationBuilder.InsertData(
                 table: "DetailInvoiceLaundry",
                 columns: new[] { "Id", "ClothesId", "LaundryInvoiceId", "Price" },
-                values: new object[] { 1, 1, 1, 1.00m });
+                values: new object[,]
+                {
+                    { 1, 1, 1, 1.00m },
+                    { 2, 2, 2, 0.99m }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clothes_OriginId",
