@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MIjuQJgFp2Iojv6QSWvBEKTtRubBn8goq8jHqO01nP8=",
+  "Hash": "V1CW6ttms0jvFO4Wm5b8OCiZBnDx6eCG0TwL/CQd0P8=",
   "Source": "ClothesRentalShop",
   "BasePath": "_content/ClothesRentalShop",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ClothesRentalShop\\wwwroot",
       "Source": "ClothesRentalShop",
-      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\ClothesRentalShop\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\ClothesRentalShop\\wwwroot\\",
       "BasePath": "_content/ClothesRentalShop",
       "Pattern": "**"
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kkDYiGtJwyj58+aLwQnDgi1NjUvJNcBaDXouCOQFB3QzZtK2+SmoezSZEBD95vxQ1TTcZppEaFi44wvpeol1FQ==",
+  "dgSpecHash": "Rn2/wR0SQNYZnS278FCEuFvlskq1z/5klxjJXVMD8SiJXwhHeZff28Q2QqRf47BATN+i5RbB/KUS1ETNYKFj+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

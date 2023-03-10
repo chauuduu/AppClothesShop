@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-<ContentRootPath>$(BaseIntermediateOutputPath)..\</ContentRootPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,10 +17,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-<Content Update="wwwroot\**\*">
-  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-</Content>
-
   </ItemGroup>
 
   <ItemGroup>

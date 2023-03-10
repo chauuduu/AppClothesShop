@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-     <ContentRootPath>$(BaseIntermediateOutputPath)..\</ContentRootPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,13 +23,6 @@
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <Content Update="wwwroot\**\*">
-  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-</Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Clothes\" />
   </ItemGroup>
 
 </Project>

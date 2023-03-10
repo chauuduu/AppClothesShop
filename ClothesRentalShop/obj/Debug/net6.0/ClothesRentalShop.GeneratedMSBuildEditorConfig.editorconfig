@@ -9,49 +9,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ClothesRentalShop
 build_property.RootNamespace = ClothesRentalShop
-build_property.ProjectDir = C:\Users\Admin\source\repos\ClothesRentalShop\AppClothesShop\ClothesRentalShop\
+build_property.ProjectDir = C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Admin\source\repos\ClothesRentalShop\AppClothesShop\ClothesRentalShop
+build_property.MSBuildProjectDirectory = C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Clothes/Index.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Clothes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xvdGhlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Home/Index.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Origin/Index.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Origin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JpZ2luXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Shared/Error.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/TypeClothes/Index.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/TypeClothes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZUNsb3RoZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/_ViewImports.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/source/repos/ClothesRentalShop/AppClothesShop/ClothesRentalShop/Views/_ViewStart.cshtml]
+[C:/Users/Admin/source/repos/App/AppClothesShop/ClothesRentalShop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

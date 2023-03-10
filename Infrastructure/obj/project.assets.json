@@ -3578,11 +3578,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3599,8 +3599,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Admin\\source\\repos\\ClothesRentalShop\\AppClothesShop\\Domain\\Domain.csproj"
+            "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Admin\\source\\repos\\App\\AppClothesShop\\Domain\\Domain.csproj"
             }
           }
         }
