@@ -59,13 +59,17 @@ namespace Application.Service.TypeClothService
 
         public IEnumerable<TypeClothes> GetLimitGreater(int? limit,int? pageSize, int? page)
         {
-            Expression<Func<TypeClothes, bool>> filter = p => p.Limit >= (limit??0);
+            Expression<Func<TypeClothes, bool>> filter = null;
+            if (limit != null)
+                filter = p => p.Limit >= limit;
             return typeClothesRepository.GetFilter(filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public IEnumerable<TypeClothes> GetLimitLess(int? limit, int? pageSize, int? page)
         {
-            Expression<Func<TypeClothes, bool>> filter = p => p.Limit <= (limit ?? -1);
+            Expression<Func<TypeClothes, bool>> filter = null;
+            if (limit != null)
+                filter = p => p.Limit <= limit;
             return typeClothesRepository.GetFilter(filter, pageSize ?? int.MaxValue, page ?? 1);
         }
     }
