@@ -34,6 +34,32 @@ namespace ClothesRentalShop.ApiControllers
                 return BadRequest(e.Message);
             }
         }
+        [HttpGet("limitgreater")]
+        public IActionResult GetThan(int? limit,int? pageSize, int? page)
+        {
+            try
+            {
+                var rs = typeClothesService.GetLimitGreater(limit,pageSize, page);
+                return Ok(mapper.Map(rs));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpGet("limitless")]
+        public IActionResult GetLess(int? limit, int? pageSize, int? page)
+        {
+            try
+            {
+                var rs = typeClothesService.GetLimitLess(limit, pageSize, page);
+                return Ok(mapper.Map(rs));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
         [HttpGet("{id}")]
         public IActionResult GetId(int id)
         {

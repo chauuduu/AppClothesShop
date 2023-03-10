@@ -2,6 +2,8 @@
 using Domain.Cloth;
 using Infrastructure.IRepository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Repository
 {
@@ -33,6 +35,18 @@ namespace Infrastructure.Repository
             {
                 var rs = db.TypeClothes.Include(e => e.Clothes).SingleOrDefault(e => e.Id == id);
                 return rs;
+            }
+        }
+
+        public IEnumerable<TypeClothes> GetFilter(Expression<Func<TypeClothes, bool>>? filter, int? pageSize, int? page)
+        {
+            using (var db = new MyDbContext())
+            {
+                IQueryable<TypeClothes> rs = db.TypeClothes.Include(e => e.Clothes);
+                if (filter!=null)
+                    rs = rs.Where(filter);
+                rs = rs.Skip((page.Value - 1) * pageSize.Value).Take(pageSize.Value);
+                return rs.ToList();
             }
         }
 

@@ -1,6 +1,9 @@
 ﻿
 using Domain.Cloth;
 using Infrastructure.IRepository;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Application.Service.TypeClothService
 {
@@ -36,9 +39,17 @@ namespace Application.Service.TypeClothService
             TypeClothes typeClothes = new TypeClothes(name, limit);
             typeClothesRepository.Update(id, typeClothes);
         }
+        /*
         public IEnumerable<TypeClothes> GetList(string? key, int? pageSize, int? page)
         {
             return typeClothesRepository.GetList(key, pageSize ?? int.MaxValue, page ?? 1);
+        }*/
+        public IEnumerable<TypeClothes> GetList(string? key, int? pageSize, int? page)
+        {
+            Expression<Func<TypeClothes, bool>> filter = null;
+            if (key!=null)
+                filter = e => e.Name.ToUpper().Contains(key.ToUpper());
+            return typeClothesRepository.GetFilter(filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public TypeClothes GetById(int id)
@@ -46,5 +57,16 @@ namespace Application.Service.TypeClothService
             return typeClothesRepository.GetById(id);
         }
 
+        public IEnumerable<TypeClothes> GetLimitGreater(int? limit,int? pageSize, int? page)
+        {
+            Expression<Func<TypeClothes, bool>> filter = p => p.Limit >= (limit??0);
+            return typeClothesRepository.GetFilter(filter, pageSize ?? int.MaxValue, page ?? 1);
+        }
+
+        public IEnumerable<TypeClothes> GetLimitLess(int? limit, int? pageSize, int? page)
+        {
+            Expression<Func<TypeClothes, bool>> filter = p => p.Limit <= (limit ?? -1);
+            return typeClothesRepository.GetFilter(filter, pageSize ?? int.MaxValue, page ?? 1);
+        }
     }
 }

@@ -437,13 +437,11 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Dapper.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\EntityFramework.SqlServer.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\EntityFramework.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
@@ -452,7 +450,6 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
@@ -468,7 +465,6 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Mono.TextTemplating.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -481,8 +477,6 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
@@ -500,7 +494,6 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Application.dll
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Domain.dll
@@ -531,3 +524,10 @@ C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\obj\Debug\net6.
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\obj\Debug\net6.0\ClothesRentalShop.pdb
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\obj\Debug\net6.0\ClothesRentalShop.genruntimeconfig.cache
 C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\obj\Debug\net6.0\ref\ClothesRentalShop.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Humanizer.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\Mono.TextTemplating.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\Admin\source\repos\App\AppClothesShop\ClothesRentalShop\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
