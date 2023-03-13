@@ -40,7 +40,7 @@ namespace Application.Service.OriginsService
             Origin.SetId(id);   
             originRepository.Update(id,Origin);
         }
-        public IEnumerable<Origin> GetList(string? key, int? pageSize, int? page)
+        public (IEnumerable<Origin> data, int total) GetList(string? key, int? pageSize, int? page)
         {
             Expression<Func<Origin, bool>> filter = null;
             if (key != null)
@@ -51,8 +51,9 @@ namespace Application.Service.OriginsService
         public Origin GetById(int id)
         {
             Expression<Func<Origin, bool>> filter = p => p.Id == id;
-            return originRepository.Get("Clothes", filter, 1, 1).FirstOrDefault();
+            return originRepository.Get("Clothes", filter, 1, 1).data.FirstOrDefault();
         }
+
     }
 }
 

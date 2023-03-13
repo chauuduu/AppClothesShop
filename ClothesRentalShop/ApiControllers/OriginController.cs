@@ -1,4 +1,5 @@
 ﻿
+using Application.Service.ClothService;
 using Application.Service.OriginsService;
 using ClothesRentalShop.Mapper;
 using ClothesRentalShop.ViewModel;
@@ -27,10 +28,9 @@ namespace ClothesRentalShop.ApiControllers
                 var rs = OriginService.GetList(key, pageSize, page);
                 return Ok(new PagingResponse()
                 {
-                    Count = rs.Count(),
-                    PageNumber = page ?? 1,
-                    PageSize = pageSize ?? rs.Count(),
-                    Data = mapper.Map(rs)
+                    Count = rs.data.Count(),
+                    TotalCount = rs.total,
+                    Data = mapper.Map(rs.data)
                 });
             }
             catch (Exception e)

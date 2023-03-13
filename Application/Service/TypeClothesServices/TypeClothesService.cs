@@ -40,7 +40,7 @@ namespace Application.Service.TypeClothService
             typeClothes.SetId(id);
             typeClothesRepository.Update(id, typeClothes);
         }
-        public IEnumerable<TypeClothes> GetList(string? key, int? pageSize, int? page)
+        public (IEnumerable<TypeClothes> data, int total) GetList(string? key, int? pageSize, int? page)
         {
             Expression<Func<TypeClothes, bool>> filter = null;
             if (key!=null)
@@ -51,10 +51,10 @@ namespace Application.Service.TypeClothService
         public TypeClothes GetById(int id)
         {
             Expression<Func<TypeClothes, bool>> filter = p => p.Id == id;
-            return typeClothesRepository.Get("Clothes",filter, 1, 1).FirstOrDefault();
+            return typeClothesRepository.Get("Clothes",filter, 1, 1).data.FirstOrDefault();
         }
 
-        public IEnumerable<TypeClothes> GetLimitGreater(int? limit,int? pageSize, int? page)
+        public (IEnumerable<TypeClothes> data, int total) GetLimitGreater(int? limit,int? pageSize, int? page)
         {
             Expression<Func<TypeClothes, bool>> filter = null;
             if (limit != null)
@@ -62,7 +62,7 @@ namespace Application.Service.TypeClothService
             return typeClothesRepository.Get("Clothes",filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
-        public IEnumerable<TypeClothes> GetLimitLess(int? limit, int? pageSize, int? page)
+        public (IEnumerable<TypeClothes> data, int total) GetLimitLess(int? limit, int? pageSize, int? page)
         {
             Expression<Func<TypeClothes, bool>> filter = null;
             if (limit != null)

@@ -1,5 +1,6 @@
 ﻿
 
+using Application.Service.ClothService;
 using Application.Service.TypeClothService;
 using ClothesRentalShop.Mapper;
 using ClothesRentalShop.ViewModel;
@@ -29,10 +30,9 @@ namespace ClothesRentalShop.ApiControllers
                 var rs = typeClothesService.GetList(key, pageSize, page);
                 return Ok(new PagingResponse()
                 {
-                    Count = rs.Count(),
-                    PageNumber = page ?? 1,
-                    PageSize = pageSize ?? rs.Count(),
-                    Data = mapper.Map(rs)
+                    Count = rs.data.Count(),
+                    TotalCount = rs.total,
+                    Data = mapper.Map(rs.data)
                 });
             }
             catch (Exception e)
@@ -46,7 +46,12 @@ namespace ClothesRentalShop.ApiControllers
             try
             {
                 var rs = typeClothesService.GetLimitGreater(limit,pageSize, page);
-                return Ok(mapper.Map(rs));
+                return Ok(new PagingResponse()
+                {
+                    Count = rs.data.Count(),
+                    TotalCount = rs.total,
+                    Data = mapper.Map(rs.data)
+                });
             }
             catch (Exception e)
             {
@@ -59,7 +64,12 @@ namespace ClothesRentalShop.ApiControllers
             try
             {
                 var rs = typeClothesService.GetLimitLess(limit, pageSize, page);
-                return Ok(mapper.Map(rs));
+                return Ok(new PagingResponse()
+                {
+                    Count = rs.data.Count(),
+                    TotalCount = rs.total,
+                    Data = mapper.Map(rs.data)
+                });
             }
             catch (Exception e)
             {

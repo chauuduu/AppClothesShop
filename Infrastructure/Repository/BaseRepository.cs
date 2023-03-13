@@ -4,6 +4,7 @@ using Infrastructure.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 using System.Linq.Expressions;
+using static Dapper.SqlMapper;
 
 namespace Infrastructure.Repository
 {
@@ -26,11 +27,12 @@ namespace Infrastructure.Repository
                 db.SaveChanges();
             }
         }
-        public IEnumerable<T> Get(string? include, Expression<Func<T, bool>>? filter, int? pageSize, int? page)
+        public (IEnumerable<T> data, int total) Get(string? include, Expression<Func<T, bool>>? filter, int? pageSize, int? page)
         {
             using (var db = new MyDbContext())
             {
                 IQueryable<T> rs = db.Set<T>();
+                var total = rs.Count();
                 if (include!=null)
                 {
                     rs = rs.Include(include);
@@ -38,11 +40,10 @@ namespace Infrastructure.Repository
                 if (filter != null)
                     rs = rs.Where(filter);
                 rs = rs.Skip((page.Value - 1) * pageSize.Value).Take(pageSize.Value);
-                return rs.ToList();
+                return (rs.ToList(), total);
             }
         }
 
-     
 
         public void Update(int id, T entity)
         {
@@ -50,7 +51,7 @@ namespace Infrastructure.Repository
             {
 
                 db.Set<T>().Attach(entity);
-                db.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.Entry(entity).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
