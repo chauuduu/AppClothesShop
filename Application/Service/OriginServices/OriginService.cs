@@ -55,13 +55,12 @@ namespace Application.Service.OriginsService
 
         public Origin GetById(int id)
         {
-            Expression<Func<Origin, bool>> filter = p => p.Id == id;
             Expression<Func<Origin, object>>[] includeProperties =
                 {
                     p => p.Clothes
                 };
 
-            return originRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
+            return originRepository.GetById(includeProperties, id);
         }
 
     }

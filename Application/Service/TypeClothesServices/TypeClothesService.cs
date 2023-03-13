@@ -55,13 +55,12 @@ namespace Application.Service.TypeClothService
 
         public TypeClothes GetById(int id)
         {
-            Expression<Func<TypeClothes, bool>> filter = p => p.Id == id;
             Expression<Func<TypeClothes, object>>[] includeProperties =
                  {
                     p => p.Clothes
                 };
 
-            return typeClothesRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
+            return typeClothesRepository.GetById(includeProperties, id);
         }
 
         public (IEnumerable<TypeClothes> data, int total) GetLimitGreater(int? limit,int? pageSize, int? page)

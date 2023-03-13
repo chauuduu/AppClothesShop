@@ -48,14 +48,13 @@ namespace Application.Service.ClothService
 
         public Clothes GetById(int id)
         {
-            Expression<Func<Clothes, bool>> filter = p => p.Id == id;
             Expression<Func<Clothes, object>>[] includeProperties =
                {
                     p => p.DetailInvoiceLaundries,
                     p => p.DetailInvoices
                 };
 
-            return clothesRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
+            return clothesRepository.GetById(includeProperties, id);
         }
 
         public (IEnumerable<Clothes> data, int total) GetList(string? key, int? pageSize, int? page)

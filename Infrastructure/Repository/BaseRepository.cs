@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 
 using System.Linq.Expressions;
+using static Dapper.SqlMapper;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Infrastructure.Repository
 {
@@ -44,6 +46,22 @@ namespace Infrastructure.Repository
             }
         }
 
+        public T GetById(Expression<Func<T, object>>[]? includeProperties,int id) 
+        {
+            using (var db = new MyDbContext())
+            {
+                IQueryable<T> rs = db.Set<T>();
+                if (includeProperties != null)
+                {
+                    foreach (var property in includeProperties)
+                    {
+                        rs = rs.Include(property);
+                    }
+                }
+                T entity = rs.FirstOrDefault(x => EF.Property<int>(x, "Id") == id);
+                return entity;
+            }
+        }
 
         public void Update(int id, T entity)
         {
