@@ -49,7 +49,13 @@ namespace Application.Service.ClothService
         public Clothes GetById(int id)
         {
             Expression<Func<Clothes, bool>> filter = p => p.Id == id;
-            return clothesRepository.Get(null,filter, 1, 1).data.FirstOrDefault();
+            Expression<Func<Clothes, object>>[] includeProperties =
+               {
+                    p => p.DetailInvoiceLaundries,
+                    p => p.DetailInvoices
+                };
+
+            return clothesRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
         }
 
         public (IEnumerable<Clothes> data, int total) GetList(string? key, int? pageSize, int? page)
@@ -57,7 +63,13 @@ namespace Application.Service.ClothService
             Expression<Func<Clothes, bool>> filter = null;
             if (key != null)
                 filter = e => e.Name.ToUpper().Contains(key.ToUpper());
-            return clothesRepository.Get(null, filter, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<Clothes, object>>[] includeProperties =
+                {
+                    p => p.DetailInvoiceLaundries,
+                    p => p.DetailInvoices
+                };
+
+            return clothesRepository.Get(includeProperties, filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
        

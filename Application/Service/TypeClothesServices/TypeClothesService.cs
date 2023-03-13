@@ -45,13 +45,23 @@ namespace Application.Service.TypeClothService
             Expression<Func<TypeClothes, bool>> filter = null;
             if (key!=null)
                 filter = e => e.Name.ToUpper().Contains(key.ToUpper());
-            return typeClothesRepository.Get("Clothes", filter, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<TypeClothes, object>>[] includeProperties =
+                {
+                    p => p.Clothes
+                };
+
+            return typeClothesRepository.Get(includeProperties, filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public TypeClothes GetById(int id)
         {
             Expression<Func<TypeClothes, bool>> filter = p => p.Id == id;
-            return typeClothesRepository.Get("Clothes",filter, 1, 1).data.FirstOrDefault();
+            Expression<Func<TypeClothes, object>>[] includeProperties =
+                 {
+                    p => p.Clothes
+                };
+
+            return typeClothesRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
         }
 
         public (IEnumerable<TypeClothes> data, int total) GetLimitGreater(int? limit,int? pageSize, int? page)
@@ -59,7 +69,12 @@ namespace Application.Service.TypeClothService
             Expression<Func<TypeClothes, bool>> filter = null;
             if (limit != null)
                 filter = p => p.Limit >= limit;
-            return typeClothesRepository.Get("Clothes",filter, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<TypeClothes, object>>[] includeProperties =
+                 {
+                    p => p.Clothes
+                };
+
+            return typeClothesRepository.Get(includeProperties, filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public (IEnumerable<TypeClothes> data, int total) GetLimitLess(int? limit, int? pageSize, int? page)
@@ -67,7 +82,12 @@ namespace Application.Service.TypeClothService
             Expression<Func<TypeClothes, bool>> filter = null;
             if (limit != null)
                 filter = p => p.Limit <= limit;
-            return typeClothesRepository.Get("Clothes", filter, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<TypeClothes, object>>[] includeProperties =
+                {
+                    p => p.Clothes
+                };
+
+            return typeClothesRepository.Get(includeProperties, filter, pageSize ?? int.MaxValue, page ?? 1);
         }
     }
 }

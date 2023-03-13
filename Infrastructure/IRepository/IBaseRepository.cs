@@ -14,5 +14,5 @@ namespace Infrastructure.IRepository
         void Add(T entity);
         void Update(int id, T entity);
         void Delete(T entity);
-        (IEnumerable<T> data, int total) Get(string? include, Expression<Func<T, bool>>? filter, int? pageSize, int? page);
+        (IEnumerable<T> data, int total) Get(Expression<Func<T, object>>[]? includeProperties, Expression<Func<T, bool>>? filter, int? pageSize, int? page);
 }

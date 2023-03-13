@@ -45,13 +45,23 @@ namespace Application.Service.OriginsService
             Expression<Func<Origin, bool>> filter = null;
             if (key != null)
                 filter = e => e.Name.ToUpper().Contains(key.ToUpper());
-            return originRepository.Get("Clothes", filter, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<Origin, object>>[] includeProperties =
+                {
+                    p => p.Clothes
+                };
+
+            return originRepository.Get(includeProperties, filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public Origin GetById(int id)
         {
             Expression<Func<Origin, bool>> filter = p => p.Id == id;
-            return originRepository.Get("Clothes", filter, 1, 1).data.FirstOrDefault();
+            Expression<Func<Origin, object>>[] includeProperties =
+                {
+                    p => p.Clothes
+                };
+
+            return originRepository.Get(includeProperties, filter, 1, 1).data.FirstOrDefault();
         }
 
     }
