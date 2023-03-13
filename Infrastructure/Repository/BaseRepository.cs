@@ -32,13 +32,13 @@ namespace Infrastructure.Repository
             using (var db = new MyDbContext())
             {
                 IQueryable<T> rs = db.Set<T>();
-                var total = rs.Count();
                 if (include!=null)
                 {
                     rs = rs.Include(include);
                 }
                 if (filter != null)
                     rs = rs.Where(filter);
+                var total = rs.Count();
                 rs = rs.Skip((page.Value - 1) * pageSize.Value).Take(pageSize.Value);
                 return (rs.ToList(), total);
             }
