@@ -67,5 +67,9 @@ namespace Domain.Cloth
             if (this.RentalTime < TypeClothes.Limit) this.RentalTime++;
             else this.ChangeStatus(Status.NeedToSell);
         }
+        public void SetId(int id)
+        {
+            Id = id;
+        }
     }
 }

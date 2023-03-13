@@ -18,5 +18,9 @@ namespace Domain.Cloth
             Name = name.Trim();
             Limit = limit>1?limit:1;
         }
+        public void SetId(int id)
+        {
+            Id = id;
+        }
     }
 }

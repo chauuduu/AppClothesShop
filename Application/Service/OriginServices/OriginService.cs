@@ -1,13 +1,15 @@
 ﻿using Domain.Cloth;
 using Infrastructure.IRepository;
+using System.Diagnostics.Metrics;
+using System.Linq.Expressions;
 
 namespace Application.Service.OriginsService
 {
     public class OriginService : IOriginService
     {
-        readonly IOriginRepository originRepository;
+        readonly IBaseRepository<Origin> originRepository;
 
-        public OriginService(IOriginRepository _originRepository)
+        public OriginService(IBaseRepository<Origin> _originRepository)
         {
             this.originRepository = _originRepository;
         }
@@ -20,7 +22,7 @@ namespace Application.Service.OriginsService
 
         public void Delete(int id)
         {
-            Origin clothe = originRepository.GetById(id);
+            Origin clothe = this.GetById(id);
             if (clothe == null)
             {
                 throw new Exception($"The entity with ID {id} was not found.");
@@ -29,22 +31,27 @@ namespace Application.Service.OriginsService
         }
         public void Update(int id, string name, string address)
         {
-            Origin clothe = originRepository.GetById(id);
+            Origin clothe = this.GetById(id);
             if (clothe == null)
             {
                 throw new Exception($"The entity with ID {id} was not found.");
             }
             Origin Origin = new Origin(name,address);
-            originRepository.Update(id, Origin);
+            Origin.SetId(id);   
+            originRepository.Update(id,Origin);
         }
         public IEnumerable<Origin> GetList(string? key, int? pageSize, int? page)
         {
-            return originRepository.GetList(key, pageSize ?? int.MaxValue, page ?? 1);
+            Expression<Func<Origin, bool>> filter = null;
+            if (key != null)
+                filter = e => e.Name.ToUpper().Contains(key.ToUpper());
+            return originRepository.Get("Clothes", filter, pageSize ?? int.MaxValue, page ?? 1);
         }
 
         public Origin GetById(int id)
         {
-            return originRepository.GetById(id);
+            Expression<Func<Origin, bool>> filter = p => p.Id == id;
+            return originRepository.Get("Clothes", filter, 1, 1).FirstOrDefault();
         }
     }
 }

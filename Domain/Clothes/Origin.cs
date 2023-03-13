@@ -18,6 +18,9 @@ namespace Domain.Cloth
             Name = name.Trim();
             Address = address.Trim();
         }
-        
+        public void SetId(int id)
+        {
+            Id = id;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Cloth;
+using System.Text.Json.Serialization;
 
 namespace Domain.LaundryInvoices
 {

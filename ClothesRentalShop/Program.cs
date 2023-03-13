@@ -36,11 +36,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-Services.AddTransient<IClothesRepository, ClothesRepository>();
+Services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 Services.AddTransient<IClothesService,ClothesService>();
-Services.AddTransient<ITypeClothesRepository, TypeClothesRepository>();
 Services.AddTransient<ITypeClothesService, TypeClothesService>();
-Services.AddTransient<IOriginRepository, OriginRepository>();
 Services.AddTransient<IOriginService, OriginService>();
 Services.AddTransient<IStaffRepository, StaffRepository>();
 Services.AddTransient<IStaffService, StaffService>();

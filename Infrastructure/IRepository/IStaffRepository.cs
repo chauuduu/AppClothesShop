@@ -10,5 +10,6 @@ namespace Infrastructure.IRepository
     public interface IStaffRepository
     {
         Staff GetStaff(string email, string password);
+        
     }
 }

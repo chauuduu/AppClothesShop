@@ -27,7 +27,13 @@ namespace ClothesRentalShop.ApiControllers
             try
             {
                 var rs = typeClothesService.GetList(key, pageSize, page);
-                return Ok(mapper.Map(rs));
+                return Ok(new PagingResponse()
+                {
+                    Count = rs.Count(),
+                    PageNumber = page ?? 1,
+                    PageSize = pageSize ?? rs.Count(),
+                    Data = mapper.Map(rs)
+                });
             }
             catch (Exception e)
             {
